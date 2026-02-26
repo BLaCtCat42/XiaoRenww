@@ -5,70 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XiaoRen's website</title>
     <style>
-        /* 全局样式重置：消除浏览器默认边距/内边距，/
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        /* 页面整体样式：柔和背景+全屏居中 */
         body {
-            font-family: "Microsoft YaHei", Arial, sans-serif; /* 优先用中文字体 */
-            background-color: #f8f9fa; /* 柔和浅灰背景，替代纯白 */
-            min-height: 100vh; /* 让body占满屏幕高度 */
-            display: flex; /* 弹性布局：新手快速居中的神器 */
-            flex-direction: column; /* 垂直排列子元素 */
-            justify-content: center; /* 水平居中 */
-            align-items: center; /* 垂直居中 */
-            padding: 20px; /* 防止内容贴边 */
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background-color: #f8f9fa; 
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
-
-        /* 标题美化：渐变文字+轻微动效 */
         h1 {
-            background: linear-gradient(90deg, #2c3e50, #3498db); /* 渐变文字 */
-            -webkit-background-clip: text; /* 裁剪背景到文字（兼容webkit内核） */
-            color: transparent; /* 文字透明，显示渐变背景 */
-            font-size: 2.5rem; /* 响应式字号，新手可理解为“相对单位” */
-            margin-bottom: 20px; /* 与下方段落间距 */
-            transition: transform 0.3s ease; /* 过渡动效：新手入门级交互 */
+            background: linear-gradient(90deg, #2c3e50, #3498db);
+            -webkit-background-clip: text; 
+            color: transparent; 
+            font-size: 2.5rem; 
+            margin-bottom: 20px; 
+            transition: transform 0.3s ease;
         }
-
-        /* 鼠标悬停标题：轻微放大，增加交互感 */
         h1:hover {
-            transform: scale(1.05); /* 放大1.05倍 */
+            transform: scale(1.05);
         }
-
-        /* 段落美化：调整行高+字号，提升可读性 */
         p {
-            color: #505965; /* 更柔和的灰色，替代原浅灰 */
+            color: #505965; 
             font-size: 1.2rem;
-            line-height: 1.6; /* 行高：新手优化文字可读性的关键 */
-            max-width: 600px; /* 限制宽度，避免文字过长 */
+            line-height: 1.6; 
+            max-width: 600px; 
             margin-bottom: 30px;
         }
-
-        /* 新增：添加一个装饰性按钮（新手入门交互元素） */
         .btn {
             padding: 12px 24px;
             background-color: #3498db;
             color: white;
             border: none;
-            border-radius: 8px; /* 圆角：新手常用美化技巧 */
+            border-radius: 8px;
             font-size: 1rem;
-            cursor: pointer; /* 鼠标悬停变手型 */
+            cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #2980b9; /* 悬停加深颜色 */
+            background-color: #2980b9; 
         }
     </style>
 </head>
 <body>
     <h1>人，和构成人的社会关系</h1>
     <p>基于GitHub托管的静态网站</p>
-    <!-- 新增：新手可点击的交互按钮，演示基础元素 -->
-    <button class="btn" onclick="alert('你点击了按钮！新手可学习JS交互～')">点我试试</button>
+    <button class="btn" onclick="alert('<a herf= https://space.bilibili.com/34191202> https://space.bilibili.com/34191202 </a>')">查看我的B站主页</button>
 </body>
 </html>
