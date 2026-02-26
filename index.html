@@ -15,28 +15,118 @@
             background-color: #f8f9fa; 
             min-height: 100vh; 
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 80px 20px 20px;
+            gap: 20px;
+        }
+        .info-sidebar {
+          width: 280px;
+          background: white;
+          border-radius: 12px;
+          padding: 20px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+          position: sticky;
+          top: 80px;
+        }
+        .info-title {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .time-box, .date-box, .weather-box {
+            margin-bottom: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+        .time-box span {
+            font-size: 1.8rem;
+            color: #3498db;
+            font-weight: bold;
+        }
+        .date-box span {
+            font-size: 1rem;
+            color: #505965;
+        }
+        .weather-box span {
+            font-size: 1rem;
+            color: #2c3e50;
+            display: flex;
             align-items: center;
-            padding: 20px;
+            gap: 8px;
+        }
+        .weather-icon {
+            font-size: 1.2rem;
+        }
+        @media (max-width: 768px) {
+            .info-sidebar {
+                display: none;
+            }
+            body {
+                justify-content: center;
+                padding-top: 40px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .main-content {
+                align-items: center !important;
+            }
+            .text-btn-group {
+                align-items: center !important;
+                text-align: center !important;
+            }
+            h1 {
+                font-size: 2.8rem !important; 
+            }
+        }
+        .main-content {
+            flex:1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
+            padding-top: 0;
+            margin-left: 0;
+            width: 100%; 
         }
         h1 {
-            background: linear-gradient(90deg, #2c3e50, #3498db);
+            background: linear-gradient(90deg, #757575, #000000);
             -webkit-background-clip: text; 
             color: transparent; 
-            font-size: 2.5rem; 
+            font-size: 3.2rem;
             margin-bottom: 20px; 
+            margin-top: 0;
             transition: transform 0.3s ease;
         }
         h1:hover {
             transform: scale(1.05);
         }
+        
+        .text-btn-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; 
+            text-align: right; 
+            width: 100%; 
+        }
         p {
-            color: #505965; 
-            font-size: 1.2rem;
+            color: #061d3a; 
+            font-size: 2rem;
             line-height: 1.6; 
             max-width: 600px; 
-            margin-bottom: 30px;
+            margin-bottom: 15px;
+            margin-left: auto;
+        }
+         a {
+            color: #061d3a; 
+            font-size: 1.1rem;
+            line-height: 1.6; 
+            max-width: 600px; 
+            margin-bottom: 15px;
+            margin-left: auto;
         }
         .btn {
             padding: 12px 24px;
@@ -47,16 +137,80 @@
             font-size: 1rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin-left: auto;
+            margin-top: 10px;
         }
 
         .btn:hover {
-            background-color: #2980b9; 
+            background-color: #0098fdc0; 
         }
     </style>
 </head>
 <body>
-    <h1>人，和构成人的社会关系</h1>
-    <p>基于GitHub托管的静态网站</p>
-    <button class="btn" onclick="alert('<a herf= https://space.bilibili.com/34191202> https://space.bilibili.com/34191202 </a>')">查看我的B站主页</button>
-</body>
+    <div class="info-sidebar">
+        <div class="info-title">实时信息</div>
+        <div class="time-box">
+            <span id="current-time">00:00:00</span>
+        </div>
+        <div class="date-box">
+            <span id="current-date">2026年02月26日 星期四</span>
+        </div>
+        <div class="weather-box">
+            <span>
+                <span class="weather-icon">☀️</span>
+                <span id="weather-info">北京 - 晴 5~15℃</span>
+            </span>
+        </div>
+    </div>
+ <div class="main-content">
+    <h1>Welcome to XiaoRen's Blog</h1>
+    <div class="text-btn-group">
+        <p>人，和构成人的社会关系</p>
+        <a>一些内容，笔记，与碎碎念</a>
+        <button class="btn" onclick="openBilibili()" >
+            访问我的B站主页
+        </button>
+    </div>
+ </div>
+    <script>
+        function openBilibili() {
+            alert("少女祈祷中...正在前往B站主页");
+            window.open('https://space.bilibili.com/76528734');
+        }
+        function updateTimeAndDate() {
+            const now = new Date();
+            // 格式化时间：时:分:秒（补零）
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('current-time').textContent = `${hours}:${minutes}:${seconds}`;
+
+            // 格式化日期：年-月-日 星期
+            const year = now.getFullYear();
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            const weekDays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            const weekDay = weekDays[now.getDay()];
+            document.getElementById('current-date').textContent = `${year}年${month}月${day}日 ${weekDay}`;
+        }
+
+        updateTimeAndDate();
+        setInterval(updateTimeAndDate, 1000);
+        /*
+        async function getWeather() {
+            try {
+                const res = await fetch('https://restapi.amap.com/v3/weather/weatherInfo?key=你的APIKey&city=110100');
+                const data = await res.json();
+                if (data.status === '1') {
+                    const weather = data.lives[0];
+                    document.getElementById('weather-info').textContent = `北京 - ${weather.weather} ${weather.temperature}℃`;
+                }
+            } catch (err) {
+                console.log('天气获取失败', err);
+            }
+        }
+        getWeather();
+        */
+        </script>
+    </body>
 </html>
